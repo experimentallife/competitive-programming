@@ -1,43 +1,29 @@
 #include <iostream>
-#include <cstdlib>
+#include <bits/stdc++.h> 
 
+using namespace std;
+ 
 int main() {
-  int d, 
-      s = 0, 
-      r = 0, a, b;
-  float t, rv = 0, av, bv;
+  setprecision(6);
 
-  while(std::cin >> d) {
-    if(!s)
-      a = d;
-    
-    if (s == 1) {
-      av = a;
-      av /= d;
-      a *= d;
+  int a, b, r = 0;
+  int r1 = 0, r2 = 0;
+  float rv = 0;
+ 
+  while(cin >> a && cin >> b) {
+    r += a * b;
+    rv += a / b;
+    cout << rv;
+    if (r2 < rv) {
+      r1 = r;
+      r2 = rv;
     }
-// ---
-    if (s == 2)
-      b = d;
-
-    if (s == 3) {
-      bv = b;
-      bv /= d;
-      b *= d;
-
-      t = av + bv;
-      if (t > rv) {
-        rv = t;
-        r = a + b;
-      }
-      
-      a = b;
-      av = bv;
-      s = 2;
-    } else s++;  
+    
+    r = a * b;
+    rv = a / b;
   }
-
-  std::cout << r;
-
+  
+  cout << r1;
+ 
   return 0;
 }
