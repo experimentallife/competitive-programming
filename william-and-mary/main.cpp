@@ -1,18 +1,16 @@
 #include <iostream>
 #include <cstdlib>
- 
+// Wrong answer on test 3 
 int main() {
-  int data, maxOdd = 0, minEven = 0;
+  int d, o = 1, e = 100000;
  
-  while(std::cin >> data) {
-    if (1 <= data && data <= 100000) {
-      if ((data % 2 && !minEven) || (data % 2 && minEven > data)) minEven = data;
-      if ((!(data % 2) && !maxOdd) || (!(data % 2) && maxOdd < data)) maxOdd = data;
-    }
+  while(std::cin >> d) {
+    if (d > o && !(d % 2)) o = d; 
+    if (d < e && (d % 2)) e = d;
   }
  
-  if (!minEven || !maxOdd) std::cout << "None";
-  else std::cout << abs(minEven - maxOdd);
+  if (e == 100000 || o == 1) std::cout << "None";
+  else std::cout << abs(e - o);
  
   return 0;
 }
